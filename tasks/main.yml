@@ -4,10 +4,11 @@
     name:
       - gpg
       - ca-certificates
-      - curl 
+      - curl
       - gnupg
       - lsb-release
-      - python3-pip # to install a more recent version of docker-compose than 1.25
+      # To install a more recent version of docker-compose than 1.25
+      - python3-pip
 - name: Import Docker APT key.
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
@@ -21,7 +22,7 @@
       - docker-ce-cli
       - containerd.io
     state: latest
-    autoremove: yes
+    autoremove: true
 - name: Install docker-compose.
   pip:
     name:
