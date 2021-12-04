@@ -1,4 +1,4 @@
-Role Name
+nicenemo.docker
 =========
 
 Provides Community edition of Docker and `docker-cli` for Debian systems.
