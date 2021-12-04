@@ -1,0 +1,28 @@
+---
+- name: Install dependencies to configure docker apt repository.
+  apt:
+    name:
+      - gpg
+      - ca-certificates
+      - curl 
+      - gnupg
+      - lsb-release
+      - python3-pip # to install a more recent version of docker-compose than 1.25
+- name: Import Docker APT key.
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+- name: Add official Docker repo.
+  apt_repository:
+    repo: 'deb https://download.docker.com/linux/debian bullseye stable'
+- name: Install Docker.
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+    autoremove: yes
+- name: Install docker-compose.
+  pip:
+    name:
+      - docker-compose
